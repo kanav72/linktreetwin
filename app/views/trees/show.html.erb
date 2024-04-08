@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "trees" %>
+<p style="background-color: #ffdead;"><%= notice %></p>
+
+
+<div class="container">
+<%= render @tree %>
+
+<% if user_signed_in? %>
+<% if current_user.id == @tree.user_id %>
+<div style="margin-top: 20px;">
+  <%= link_to "Edit this tree", edit_tree_path(@tree), class:"button-1" %> 
+  <%= link_to "Back to trees", trees_path, class:"button-1" %>
+
+  <%= button_to "Delete my tree", @tree, method: :delete, class:"button-1", style:"margin-top: 20px;" %>
+</div>
+<% end %>
+<% end %>
+</div>
